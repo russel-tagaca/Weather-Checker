@@ -188,7 +188,7 @@ $(document).ready( function(){
 								alert( "Error Message:  GitHub can only support static pages, API call to OpenWeatherMap's API doesn't work"); 	},
 								
 				success: 	function(result){	
-        
+        alert( "Error Message:  GitHub can only support static pages, API call to OpenWeatherMap's API doesn't work");
         $("#B").html(result);                   
         var obj = JSON.parse(result);
         var tempF = Math.round(((obj.main.temp - 273.15) * 1.8) + 32);
