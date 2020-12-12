@@ -187,9 +187,10 @@ $(document).ready( function(){
 				error: 		function(xhr, status, error) {
 								alert( "Error Message:  \r\nNumeric code is: "  + xhr.status + " \r\nError is " + error); 	},
 								
-				success: 	function(result){	
+				success: 	function(data, result){	
         
-        $("#B").html(result);        
+        $("#B").html(result);   
+	alert(data);
 	alert(result);
         var obj = JSON.parse(result);
         var tempF = Math.round(((obj.main.temp - 273.15) * 1.8) + 32);
