@@ -175,59 +175,29 @@ $(document).ready( function(){
 
 
 	$("#formsubmit").click( function() {
-		e.preventDefault();
-		$.ajax({
-		    type: "GET",
-		    url: 'jqAJAX.php',
-		    data: "zip=" + s,
-		    success: function(response)
-		    {
-			var jsonData = JSON.parse(response);
-
-			// user is logged in successfully in the back-end
-			// let's redirect
-			if (jsonData.success == "1")
-			{
-			    location.href = 'my_profile.php';
-			}
-			else
-			{
-			    alert('Invalid Credentials!');
-			}
-		   }
-	       });
-	     });
 		var s = $(".A").val() ;  
-		
-		$.ajax({	 	
-		
-				type: 		"GET"  ,
-				url: 		"jqAJAX.php",
-				data: 		"zip=" + s ,
-				success: 	function(data, result){	
-        
-	alert(data);
-	alert(result);
-        var obj = JSON.parse(result);
-        var tempF = Math.round(((obj.main.temp - 273.15) * 1.8) + 32);
-				document.getElementById("weatherInfo").innerHTML = 
-        "Weather for: " + obj.sys.country + "\n" +
-        "City: " + obj.name + "\n" +
-        "Coordinates: " + obj.coord.lon + ", " + obj.coord.lat + "\n"  +
-        "Temperature: " + tempF + "&deg;F \n" +
-        "Weather: " + obj.weather[0].main + "\n" +
-        "Description: " + obj.weather[0].description + "\n" +
-        "Humidity: " + obj.main.humidity + "%\n" +
-        "Wind Speed: " + obj.wind.speed + "m/s\n" +
-        "Sunrise/epoch: " + obj.sys.sunrise + "\n";	
-				
+		$.ajax({	
+			type: 		"GET"  ,
+			url: 		"jqAJAX.php",
+			data: 		"zip=" + s ,
+			success: 	function(data, result){	
+				alert(data);
+				alert(result);
+				var obj = JSON.parse(result);
+				var tempF = Math.round(((obj.main.temp - 273.15) * 1.8) + 32);
+							document.getElementById("weatherInfo").innerHTML = 
+				"Weather for: " + obj.sys.country + "\n" +
+				"City: " + obj.name + "\n" +
+				"Coordinates: " + obj.coord.lon + ", " + obj.coord.lat + "\n"  +
+				"Temperature: " + tempF + "&deg;F \n" +
+				"Weather: " + obj.weather[0].main + "\n" +
+				"Description: " + obj.weather[0].description + "\n" +
+				"Humidity: " + obj.main.humidity + "%\n" +
+				"Wind Speed: " + obj.wind.speed + "m/s\n" +
+				"Sunrise/epoch: " + obj.sys.sunrise + "\n";	
 				}	
-	
 		});
-		
 	});
-
-	
 });
 
 </script>
