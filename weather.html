@@ -189,7 +189,8 @@ $(document).ready( function(){
 								
 				success: 	function(result){	
         
-        $("#B").html(result);                   
+        $("#B").html(result); 
+	alert(result);
         var obj = JSON.parse(result);
         var tempF = Math.round(((obj.main.temp - 273.15) * 1.8) + 32);
 				document.getElementById("weatherInfo").innerHTML = 
